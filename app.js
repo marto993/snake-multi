@@ -14,6 +14,9 @@ const diff = 100;
 
 // Configuración para servir archivos estáticos desde el directorio "public" (donde estará tu index.html)
 app.use(express.static('public'));
+// Configura el manejo de archivos estáticos
+app.use('/static', express.static(__dirname + '/node_modules/socket.io/client-dist'));
+
 let playing = false;
 let timeoutIdStartGame = 0;
 let downCounter = 3;
