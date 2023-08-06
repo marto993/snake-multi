@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 const canvasWidth = 1000;
 const canvasHeight = 600;
 const segmentSize = 10;
-const diff = 200;
+const diff = 100;
 
 // Configuración para servir archivos estáticos desde el directorio "public" (donde estará tu index.html)
 app.use(express.static('public'));
