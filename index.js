@@ -72,7 +72,7 @@ function generateFood() {
   food = newFood;
 }
 
-io.on('connection', (socket) => {
+socketIO.on('connection', (socket) => {
   console.log('Nuevo jugador conectado:', socket.id);
   try {
     socket.on('testLatency', ( data ) => {
