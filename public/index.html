@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake! V.0.1</title>
+    <style>
+        * { 
+            font-family: system-ui; 
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: top;
+            height: 100vh;
+            margin: 0;
+            background-color: #A398db8d;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0px 10px 10px 10px;
+        }
+        p {
+            color: white;
+            margin: 0;
+        }
+        .game-over-screen {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+        #playerList {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #playerList li {
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Estilos para jugadores que han perdido */
+        #playerList li.gameover {
+            text-decoration: line-through;
+            background-color: #f2dede;
+            color: #a94442;
+        }
+
+        /* Estilos para el nombre del jugador */
+        #playerList li .player-name {
+            flex: 1; /* Ocupa el espacio restante */
+            /*padding-right: 10px; /* Espacio entre el nombre y la puntuación */
+        }
+
+        /* Estilos para la puntuación del jugador */
+        #playerList li .player-score {
+            min-width: 2rem; /* Ancho mínimo para la puntuación */
+            text-align: right; /* Alineación a la derecha */
+            margin-right: 0.3rem;
+        }
+    </style>
+    
+    <script src="/socket.io/socket.io.min.js"></script>
+    <script src="./snakeClass.js"></script>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <!-- Columna para mostrar información sobre la partida -->
+            <div id="gameInfo" class="game-info">
+                <h2>Partida actual</h2>
+                <ol id="playerList">
+                    <!-- Aquí se mostrarán los nombres de los jugadores -->
+                </ol>
+                <span class="hidden" id="waitingSpan">Esperando más jugadores para comenzar la partida...</span>
+            </div>
+            <form id="joinForm">
+                <label for="username">Nombre:</label>
+                <input type="text" id="username" required>
+                <button id="joinButton">Unirse a la partida</button>
+            </form>
+            <canvas id="game" width="800" height="600"></canvas>
+
+            <div id="gameOverScreen" class="game-over-screen hidden">
+                <h1>GAME OVER</h1>
+                <p id="scoreDisplay"></p>
+                <button id="restartButton">Restart</button>
+            </div>
+
+            <div>
+                <h2 class="hidden">Prueba de Rendimiento</h2>
+                <button id="startButton" class="hidden">Iniciar Prueba</button>
+                <ul id="latencyList"></ul>
+            </div>
+
+        </div>
+    </main>
+    
+    <script src="./SnakeGame.js"></script>
+</body>
+</html>
