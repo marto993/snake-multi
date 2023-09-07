@@ -14,7 +14,7 @@ const segmentSize = 10;
 const diff = 100;
 
 // Configuración para servir archivos estáticos desde el directorio "public" (donde estará tu index.html)
-app.use(express.static('/public'));
+app.use(express.static('public'));
 
 let playing = false;
 let timeoutIdStartGame = 0;
