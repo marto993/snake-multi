@@ -11,7 +11,7 @@ const port = process.env.PORT || 3000;
 const canvasWidth = 1000;
 const canvasHeight = 600;
 const segmentSize = 10;
-const diff = 100;
+const diff = 90;
 
 // Configuración para servir archivos estáticos desde el directorio "public" (donde estará tu index.html)
 app.use(express.static('public'));
@@ -20,7 +20,7 @@ let playing = false;
 let timeoutIdStartGame = 0;
 let downCounter = 3;
 let intervalId = 0;
-let maxPlayers = 2;
+let maxPlayers = 4;
 let players = [];
 let gameboard = []; // acá guardo las posiciones de todo en el mapa pero sin tener en cuenta el x10 del ancho del snake.
 let food = {x: getRandomCoordinate(canvasWidth),
