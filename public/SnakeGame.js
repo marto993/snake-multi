@@ -234,6 +234,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
     gameOver = false;
   });
 
+  joinButton.addEventListener('click',()=>{
+    console.log("Join button clicked");
+    const username = usernameInput.value; // Obtenemos el nombre del usuario del campo de entrada
+    if (username.trim() !== '') {
+      // Si el nombre no está vacío, enviamos la solicitud al servidor
+      socket.emit('joinGame', { username });
+      joinForm.style.display = 'none'; // Ocultamos el formulario después de unirse
+      waitingSpan.classList.remove('hidden');
+    }
+  });
+
   // Manejamos el evento de envío del formulario
   joinForm.addEventListener('submit', (event) => {
     event.preventDefault(); // Evitamos el comportamiento predeterminado del formulario (recargar la página)
