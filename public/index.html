@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake! V.0.1</title>
@@ -82,19 +84,27 @@
 <body>
     <main>
         <div class="container">
+            <div class="card m-2 text-light bg-dark bg-gradient">
+                <div class="card-body">
+                    <h1>Bienvenido al snake multiplayer</h1>
+                    <span>La partida comienza automáticamente cuando se alcanza el número de jugadores necesarios; hasta entonces, anotate y esperá sentado. </span>
+                </div>
+            </div>
             <!-- Columna para mostrar información sobre la partida -->
             <div id="gameInfo" class="game-info">
-                <h2>Partida actual</h2>
                 <ol id="playerList">
                     <!-- Aquí se mostrarán los nombres de los jugadores -->
                 </ol>
                 <span class="hidden" id="waitingSpan">Esperando más jugadores para comenzar la partida...</span>
             </div>
-            <form id="joinForm">
-                <label for="username">Nombre:</label>
-                <input type="text" id="username" required>
-                <button id="joinButton">Unirse a la partida</button>
+            <div class="input-group mb-3 w-auto">
+            <form id="joinForm" class="row">
+                <label for="username" class="form-label">Nombre:</label>
+                <input type="text" id="username" class="form-control" placeholder="Nombre" required>
+                <button id="joinButton" type="button" class="btn btn-primary">Unirse a la partida</button>
             </form>
+        </div>
+
             <canvas id="game" width="800" height="600"></canvas>
 
             <div id="gameOverScreen" class="game-over-screen hidden">
@@ -113,5 +123,7 @@
     </main>
     
     <script src="./SnakeGame.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>
